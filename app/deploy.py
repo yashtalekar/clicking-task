@@ -58,6 +58,7 @@ def main(operator: Operator, cfg: DictConfig) -> None:
 
     is_using_screening_units = cfg.mephisto.blueprint["use_screening_task"]
 
+
     task_dir = cfg.task_dir
 
     build_custom_bundle(

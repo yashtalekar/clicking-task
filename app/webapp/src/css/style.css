@@ -67,3 +67,20 @@ code {
 p {
   margin: 5px 0 5px 0;
 }
+
+h1 {
+  font-size: x-large;
+  text-align: center;
+}
+
+.main-container {
+  padding: "50px"; 
+  margin-right: "auto";
+  margin-left: "auto";
+  width: "50%";
+
+}
+
+.instructions-container {
+  align-self: center;
+}

@@ -6,7 +6,10 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-import React from "react";
+import React, {useState} from "react";
+import CanvasComponent from "./CanvasComponent.jsx";
+import Timer from "./Timer.jsx";
+import Instructions from "./InstructionsComponent.jsx";
 
 function OnboardingComponent({ onSubmit }) {
   return (
@@ -61,13 +64,53 @@ function Directions({ children }) {
 }
 
 function SimpleFrontend({ taskData, isOnboarding, onSubmit, onError }) {
-  const data = { success: true };
+
+  // State for instructions
+  const [readingInstructions, setReadingInstructions] = useState(true);
+
+  // State for type of worker
+  const [gamerType, setGamerType] = React.useState('PC-Gamer');
+
+  // State for score.
+  const [score, setScore] = useState(0);
+  
+  // State for accuracy.
+  const [canvasClicks, setCanvasClicks] = useState(0);
+
+  // State for timer
+  const [timer, setTimer] = useState(90)
+
+  const calculateAccuracy = (totalClicks, totalHits) => {
+    if (totalClicks == 0 && totalHits == 0) {
+      return 0;
+    }
+    return (totalHits/totalClicks).toFixed(3);
+  }
+
+
   return (
-    <div style={{ padding: "50px" }}>
-      <button className="btn btn-outline" onClick={() => {
-        onSubmit(data);
-      }}>Button</button>
-      Click this button to submit sample data.
+    <div style={{ padding: "50px", marginRight: "auto", marginLeft: "auto", width: "50%", textAlign: "center" }}>
+      { readingInstructions === true && 
+        <Instructions onSubmit={onSubmit} setReadingInstructions={setReadingInstructions} gamerType={gamerType} setGamerType={setGamerType}/>
+      }
+      {
+        readingInstructions === false &&
+      <div>
+        <CanvasComponent score={score} setScore={setScore} canvasClicks={canvasClicks} 
+          setCanvasClicks={setCanvasClicks} timer={timer}/>
+        <Timer timer={timer} setTimer={setTimer}/>
+        
+        <button 
+          className="btn btn-outline"
+          style={{ width: "fit-content" }}
+          onClick={() => onSubmit({ gamerType: gamerType, score: score , accuracy: calculateAccuracy(canvasClicks,score)})
+          }
+        >Submit Score</button>
+        The current score is: {score}.
+        The current accuracy is {calculateAccuracy(canvasClicks,score)}
+        
+      </div>
+      }
     </div>
   );
 }

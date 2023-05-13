@@ -6,16 +6,17 @@ defaults:
 
 mephisto:
   blueprint:
-    data_json: ${task_dir}/kg_sample.json
+    data_json: ${task_dir}/aim_target.json
     task_source: ${task_dir}/webapp/build/bundle.js
     link_task_source: true
     extra_source_dir: ${task_dir}/webapp/src/static
     units_per_assignment: 1
   task:
-    task_name: example
-    task_title: "Pick up similar entities"
-    task_description: "A machine learning algorithm classifies the following entities as the same class. Drag-and-drop and add more entities of the same class from the right until all the entities on the right is in a different class."
-    task_reward: 0.15
-    task_tags: "entity, same class, knowledge graph"
-    # We expect to be able to handle 300 concurrent tasks without issue
+    task_name: click-on-the-target-local-1
+    task_title: "Click on the target"
+    task_description: "Click on as many targets as you can. Your score will be evaluated based on your accuracy and number of hits."
+    task_reward: 0.30
+    task_tags: "aim, target, action logging"
     max_num_concurrent_units: 300
+    # We expect to be able to handle 300 concurrent tasks without issue
+    

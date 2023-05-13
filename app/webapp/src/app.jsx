@@ -51,19 +51,19 @@ function MainApp() {
     return (
       <section className="hero is-medium is-link">
         <div className="hero-body">
-          <div className="title is-3">Pick up similar entities</div>
+          <div className="title is-3">Target Clicking Task</div>
           <div className="subtitle is-4">
             <p>
-              You will be asked to pick up similar entities or the entities of
-              the <b>same class</b>. Please read the detailed instructions and
-              make the selection by clicking on the entities.
+              You will be asked to click on as many <b>red targets</b> as you can in 90 seconds. 
+              Please first fill the small information form about your 
+              background in video games by selecting the appropriate check-box. 
+              After you do that, the clicking task will start.
             </p>
             <p>
-              We are conducting an academic study about Machine Learning and
-              Knowledge Graph. We need to understand if humans (crowd workers)
-              make the same classification decision as machine learning
-              algorithms do. Please read the following questions carefully and
-              make your decision (selection). You will receive the credit for
+              We are conducting an academic study about mouse control and video game background. 
+              We need to understand if there is a difference in performance on the clicking task
+              based on background knowledge of video games. We will also record your mouse clicks
+              to try and assess your performance. You will receive the credit for
               performing our task. Information sheet:{" "}
               <a
                 href={"http://143.244.201.53:9000/infoSheet/"}
