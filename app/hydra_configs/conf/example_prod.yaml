@@ -1,0 +1,22 @@
+#@package _global_
+defaults:
+  - /mephisto/blueprint: static_react_task
+  - /mephisto/architect: heroku
+  - /mephisto/provider: mturk
+mephisto:
+  provider:
+    requester_name: my_mturk_user
+  blueprint:
+    data_csv: ${task_dir}/politifact_data_pilot.csv
+    task_source: ${task_dir}/webapp/build/bundle.js
+    link_task_source: false
+    extra_source_dir: ${task_dir}/webapp/src/static
+    units_per_assignment: 3
+  task:
+    task_name: political-assessment-prod
+    task_title: "Anwser questions and evaluate political statements"
+    task_description: " Anwser questions and evaluate political statements."
+    task_reward: 1
+    task_tags: "political, evaluation, political statement"
+    # We expect to be able to handle 300 concurrent tasks without issue
+    max_num_concurrent_units: 300
