@@ -11,7 +11,7 @@ mephisto:
     task_source: ${task_dir}/webapp/build/bundle.js
     link_task_source: false
     extra_source_dir: ${task_dir}/webapp/src/static
-    units_per_assignment: 200
+    units_per_assignment: 4
   task:
     task_name: click-on-the-target-test
     task_title: "Click on the target"
